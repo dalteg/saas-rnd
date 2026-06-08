@@ -26,7 +26,7 @@ SECRET_KEY =config("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = str(os.environ.get("DEBUG")).lower() == "true" 
-DEBUG =  config("DJANGO_DEBUG", cast=bool)
+DEBUG = config("DJANGO_DEBUG", cast=bool, default=False)
 print("DEBUG", DEBUG, type(DEBUG))
 
 ALLOWED_HOSTS = [
@@ -95,7 +95,8 @@ DATABASES = {
 }
 
 CONN_MAX_AGE = config("CONN_MAX_AGE", cast = int, default=30)
-DATABASE_URL = config("DATABASE_URL", cast = str)
+#DATABASE_URL = config("DATABASE_URL", cast = str)
+DATABASE_URL = config("DATABASE_URL", default=None)
 
 if DATABASE_URL is not None:
     import dj_database_url
