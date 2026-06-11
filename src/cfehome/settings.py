@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'visits'
+    'visits',
+    'commando',
 ]
 
 MIDDLEWARE = [
@@ -143,6 +144,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATCFILES_BASE_DIR = BASE_DIR / "staticfiles"
+STATCFILES_BASE_DIR.mkdir(exist_ok=True, parents=True) # create the directory if it doesn't exist
 STATCFILES_VENDOR_DIR = STATCFILES_BASE_DIR/"vendors"
 
 # source for python manage.py collectstatic
