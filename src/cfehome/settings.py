@@ -155,7 +155,8 @@ STATICFILES_DIRS = [
 #output for python manage.py collectstatic
 # local cdn
 
-STATIC_ROOT = BASE_DIR/"local-cdn"
+#TATIC_ROOT = BASE_DIR/"local-cdn"
+STATIC_ROOT = BASE_DIR / "staticfiles-cdn"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
