@@ -156,8 +156,7 @@ STATICFILES_DIRS = [
 # local cdn
 
 STATIC_ROOT = BASE_DIR/"local-cdn"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 # Default primary key field type

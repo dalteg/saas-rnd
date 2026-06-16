@@ -1,3 +1,9 @@
+# ignore vendor  static  files 
+C:\Users\Admin\Documents\Python projects\SaaS\src\local-cdn\admin
+
+#ignore local  static file root
+local-cdn/
+
 venv/
 
 # Byte-compiled / optimized / DLL files
