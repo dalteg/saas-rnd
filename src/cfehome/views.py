@@ -6,7 +6,9 @@ from visits.models import PageVisit
 this_dir = pathlib.Path(__file__).resolve().parent
 
 def home_view(requests, *args, **kwargs):
-    return about_view(requests,*args, **kwargs)
+    if requests.user.is_authenticated:
+        print(requests.user.first_name)
+    return about_view(requests, *args, **kwargs)
 
 def about_view(requests, *args, **kwargs):
     qs = PageVisit.objects.all()
