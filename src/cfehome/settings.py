@@ -65,10 +65,16 @@ INSTALLED_APPS = [
     'commando',
     'auth',
     # third-party-apps
+    "allauth_ui",
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    "widget_tweaks",
+    "slippers",
 ]
+
+ALLAUTH_UI_THEME = "lemonade"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -145,6 +151,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Django Allauth Config
+ACCOUNT_SIGNUP_FIELDS = ['username*',"email*", "password1*", "password2*"]
+ACCOUNT_LOGIN_METHODS = {"username","email"}
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "[SaaS] "
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+LOGIN_REDIRECT_URL = "/"
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+
 AUTHENTICATION_BACKENDS = [
     #...
     # Needed to login by username in Django admin, regardless of `allauth`

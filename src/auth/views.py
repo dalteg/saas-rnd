@@ -6,22 +6,22 @@ User = get_user_model()
 
 
 # Create your views here.
-def login_view(requests):
-    if  requests.method == "POST":
-        username = requests.POST.get("username") or None
-        password = requests.POST.get("password") or None
+def login_view(request):
+    if  request.method == "POST":
+        username = request.POST.get("username") or None
+        password = request.POST.get("password") or None
         if all([username, password]):
-            user = authenticate(requests, username=username, password=password)
+            user = authenticate(request, username=username, password=password)
             if user is not None:
-                login(requests, user)
+                login(request, user)
                 print("Login here!")
                 return redirect("/")
-    return render(requests, "auth/login.html", {})
+    return render(request, "auth/login.html", {})
 
 
 def register_view(request):
     if  request.method == "POST":
-        print(request.POST)
+        #print(request.POST)
         username = request.POST.get("username") or None
         email = request.POST.get("email") or None
         password = request.POST.get("password") or None
