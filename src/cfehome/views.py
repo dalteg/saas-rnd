@@ -28,3 +28,15 @@ def about_view(requests, *args, **kwargs):
     html_template = "home.html"
     PageVisit.objects.create(path=requests.path)
     return render(requests, html_template, my_context)
+
+VALID_CODE = "abc123"
+
+def pw_protected_view(request, *args, **kwargs):
+    is_allowed = False
+    if  request.method == "POST":
+        user_pw_sent = request.POST.get("code") or None
+        if user_pw_sent == VALID_CODE:
+            is_allowed =    True
+    if is_allowed:
+        return render(request, "protected/view.html",{} )
+    return render(request, "protected/entry.html",{} )
